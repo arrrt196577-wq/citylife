@@ -13,6 +13,7 @@ CityLife 使用 Unity 作为游戏引擎，并用 C# 编写游戏逻辑。
 | [README.md](README.md) | 仓库的目录和文件索引。 |
 | [.gitignore](.gitignore) | 排除 Unity 缓存、日志、本机编辑器设置和 Python 字节码。 |
 | [ArtSource/](ArtSource/) | 像素画原稿、参考图和 AI 素材生成记录。 |
+| [doc/](doc/) | 存放业务文档、玩法设计文档等项目文档。 |
 | [Game/](Game/) | Unity 项目所在目录。 |
 
 ## 美术源文件
@@ -22,6 +23,16 @@ CityLife 使用 Unity 作为游戏引擎，并用 C# 编写游戏逻辑。
 | [ArtSource/Scripts/](ArtSource/Scripts/) | 能重复生成成品的绘图脚本。[咖啡厅生成脚本](ArtSource/Scripts/draw_cafe.py)输出室内底图、外观和家具图集，也可用 `--preview` 导出内外对照图。 |
 | [ArtSource/Originals/](ArtSource/Originals/) | Pixelorama 的 .pxo 等可编辑原稿，可按建筑或道具分子目录存放。 |
 | [ArtSource/Drafts/](ArtSource/Drafts/) | 角色草图、配色试稿和动画测试。 |
+
+## 项目文档
+
+项目文档统一使用 Markdown（`.md`）格式。
+
+| 路径 | 用途 |
+| --- | --- |
+| [doc/business/](doc/business/) | 项目需求、业务规则和业务流程。 |
+| [doc/gameplay/](doc/gameplay/) | 核心玩法、游戏机制和数值设计。 |
+| [游戏基座](doc/gameplay/游戏基座.md) | 游戏定位、现有原型与待定义的基础玩法。 |
 
 ## Unity 游戏内容
 
