@@ -1,8 +1,4 @@
-"""Draw the CityLife cafe as two registered RGBA sprites.
-
-Run with Python and Pillow. The interior is the base sprite. The exterior
-overlay covers it with the roof and street facade while the player is outside.
-"""
+"""Draw the registered CityLife café sprites and furniture atlas with Pillow."""
 
 import argparse
 from pathlib import Path
@@ -11,218 +7,460 @@ from random import Random
 from PIL import Image, ImageDraw
 
 
-SIZE = (192, 160)
-INK = "#252c31"
-MORTAR = "#6a534c"
-CREAM = "#f2d9a5"
-WOOD = "#b67b4c"
-WOOD_DARK = "#69463c"
-LEAF = "#49765c"
-LEAF_LIGHT = "#78a66b"
+SIZE = (224, 192)
+ATLAS_SIZE = (192, 128)
+INK = "#282b31"
+CREAM = "#f6deac"
+WOOD = "#ba8459"
+WOOD_DARK = "#68463d"
 TEAL = "#376b6d"
-TEAL_LIGHT = "#548589"
-BRASS = "#f2bf70"
-OUTPUT = (
-    Path(__file__).resolve().parents[2]
-    / "Game/Assets/CityLife/Art/Props/Cafe"
-)
+TEAL_LIGHT = "#598b88"
+BRASS = "#efbc72"
+SHADOW = (80, 45, 44, 62)
+OUTPUT = Path(__file__).resolve().parents[2] / "Game/Assets/CityLife/Art/Props/Cafe"
 
 LETTERS = {
     "A": ("010", "101", "111", "101", "101"),
-    "C": ("011", "100", "100", "100", "011"),
     "E": ("111", "100", "110", "100", "111"),
-    "F": ("111", "100", "110", "100", "100"),
     "H": ("101", "101", "111", "101", "101"),
     "L": ("100", "100", "100", "100", "111"),
-    "O": ("010", "101", "101", "101", "010"),
+    "M": ("101", "111", "111", "101", "101"),
+    "N": ("1001", "1101", "1011", "1001", "1001"),
+    "U": ("101", "101", "101", "101", "111"),
     "Z": ("111", "001", "010", "100", "111"),
 }
 
 
 def pixel_text(draw, position, label, color, scale=1):
     left, top = position
-    for index, letter in enumerate(label):
-        for row, pattern in enumerate(LETTERS[letter]):
+    for letter in label:
+        glyph = LETTERS[letter]
+        for row, pattern in enumerate(glyph):
             for column, bit in enumerate(pattern):
                 if bit == "1":
-                    x = left + (index * 4 + column) * scale
+                    x = left + column * scale
                     y = top + row * scale
                     draw.rectangle((x, y, x + scale - 1, y + scale - 1), color)
+        left += (len(glyph[0]) + 1) * scale
 
 
-def plant(draw, x, y, pot="#b76c53"):
-    draw.ellipse((x - 5, y + 4, x + 6, y + 8), "#65504a")
+def cup(draw, x, y, color=CREAM):
+    draw.line((x, y + 4, x + 5, y + 4), fill="#a87d5f")
+    draw.point((x + 5, y + 1), fill=color)
+    draw.rectangle((x, y, x + 4, y + 3), color)
+    draw.line((x + 1, y, x + 3, y), fill="#87553f")
+    draw.point((x + 2, y + 1), fill=BRASS)
+
+
+def plant(draw, x, y, pot):
+    draw.ellipse((x - 7, y + 4, x + 8, y + 9), SHADOW)
+    draw.polygon(((x - 5, y), (x + 5, y), (x + 3, y + 7), (x - 3, y + 7)), pot, INK)
+    draw.line((x - 3, y + 3, x + 2, y + 3), fill="#e6a57a")
     draw.polygon(
-        ((x - 4, y), (x + 4, y), (x + 3, y + 6), (x - 3, y + 6)),
-        fill=pot, outline=INK,
+        ((x, y + 2), (x - 7, y - 3), (x - 7, y - 7), (x - 3, y - 6),
+         (x - 2, y - 3), (x - 3, y - 10), (x + 1, y - 13), (x + 4, y - 9),
+         (x + 2, y - 3), (x + 7, y - 7), (x + 7, y - 3)),
+        "#47765b", INK,
     )
-    draw.line((x - 2, y + 4, x + 1, y + 4), fill="#e8a479")
-    draw.polygon(
-        ((x, y + 2), (x - 6, y - 3), (x - 6, y - 6), (x - 2, y - 5),
-         (x, y - 9), (x + 3, y - 8), (x + 3, y - 4), (x + 6, y - 6),
-         (x + 6, y - 2)),
-        fill=LEAF, outline=INK,
-    )
-    draw.line((x - 4, y - 5, x - 2, y - 3), fill=LEAF_LIGHT)
-    draw.line((x + 1, y - 7, x, y - 2, x + 4, y - 4), fill=LEAF_LIGHT)
+    draw.line((x - 5, y - 5, x, y - 1, x + 1, y - 10), fill="#82a86b")
+    draw.line((x + 3, y - 2, x + 5, y - 5), fill="#a9b978")
 
 
 def draw_entry(draw):
-    draw.rounded_rectangle((12, 37, 181, 145), 10, "#5e5353")
-    draw.rounded_rectangle((14, 34, 177, 141), 8, "#856d60")
-    draw.rectangle((17, 121, 175, 137), "#aa8d75", outline=MORTAR)
-    draw.rectangle((18, 123, 174, 133), "#c7ac8e")
-    draw.line((18, 134, 174, 134), fill="#e5c4a1")
-    draw.line((19, 129, 174, 129), fill="#b49a83")
-    for x in range(26, 172, 16):
-        draw.line((x, 123, x, 128), fill="#aa9079")
-        draw.line((x + 5, 130, x + 5, 133), fill="#aa9079")
-    draw.rectangle((84, 126, 107, 139), "#b49a83", outline=MORTAR)
-    draw.rectangle((85, 128, 106, 135), "#e5c4a1")
-    draw.line((85, 136, 106, 136), fill="#a9876f")
-    draw.line((87, 137, 104, 137), fill="#f0d2ab")
-    plant(draw, 29, 135)
-    plant(draw, 162, 135)
+    draw.rounded_rectangle((12, 125, 213, 181), radius=8, fill="#514950")
+    draw.rounded_rectangle((12, 127, 210, 177), radius=7, fill="#82706c")
+    draw.rounded_rectangle((15, 134, 207, 175), radius=6, fill="#b9a28a", outline="#735e59")
+    for index, y in enumerate(range(151, 175, 6)):
+        draw.line((17, y, 205, y), fill="#9e8577")
+        draw.line((18, y + 1, 204, y + 1), fill="#ccae91")
+        for x in range(27 + index % 2 * 8, 203, 16):
+            draw.line((x, y + 2, x, min(174, y + 5)), fill="#a58b7b")
+
+    draw.rectangle((94, 151, 129, 173), "#8e7166", outline="#6b544f")
+    draw.rectangle((96, 153, 127, 168), "#d6b79a")
+    draw.line((96, 162, 127, 162), fill="#b09684")
+    draw.line((96, 163, 127, 163), fill="#eed0ac")
+    draw.line((96, 170, 127, 170), fill="#ebcba6")
+    draw.line((98, 172, 125, 172), fill="#9c7d70")
+
+    draw.rectangle((17, 57, 206, 154), "#776261")
 
 
 def draw_floor(draw):
-    draw.rectangle((24, 29, 167, 125), INK)
-    draw.rectangle((27, 36, 164, 121), "#d5a276")
-    plank_colors = ("#d9ac7e", "#d3a275", "#deb286", "#ca986d")
+    draw.rectangle((20, 27, 203, 152), INK)
+    draw.rectangle((25, 51, 198, 149), "#d6a679")
+    planks = ("#dcb184", "#d7a77c", "#dcb084", "#d1a076", "#d9a87a")
     random = Random(26)
-    for row, y in enumerate(range(48, 120, 5)):
-        draw.rectangle((28, y, 163, min(y + 4, 119)), plank_colors[row % 4])
-        draw.line((28, y + 4, 163, y + 4), fill="#bc865e")
-        seam_start = 37 + (row * 9) % 24
-        for x in range(seam_start, 164, 24):
-            draw.line((x, y + 1, x, y + 3), fill="#be8d63")
-            draw.point((x + 1, y + 1), fill="#f0c395")
-        for _ in range(4):
-            x = random.randrange(31, 160)
-            draw.line((x, y + 2, x + 2, y + 2), fill="#c89366")
+    for row, y in enumerate(range(53, 148, 5)):
+        draw.rectangle((25, y, 198, y + 4), planks[row % len(planks)])
+        draw.line((25, y + 4, 198, y + 4), fill="#bd8d67")
+        for x in range(32 + (row * 11) % 24, 198, 24):
+            draw.line((x, y + 1, x, y + 3), fill="#c29068")
+            draw.point((x + 1, y + 1), fill="#e8bd90")
+        for _ in range(5):
+            x = random.randrange(28, 192)
+            draw.line((x, y + 2, x + random.randint(1, 4), y + 2), fill="#cd9b71")
 
-    draw.rectangle((80, 112, 111, 121), "#a96d56", outline=WOOD_DARK)
-    draw.rectangle((82, 113, 109, 119), "#c18968")
-    for x in range(84, 110, 4):
-        draw.line((x, 114, x, 118), fill="#edb68a")
-    draw.rectangle((26, 120, 83, 125), "#8b624e", outline=INK)
-    draw.rectangle((108, 120, 165, 125), "#8b624e", outline=INK)
-    draw.line((27, 121, 82, 121), fill="#efcf9b")
-    draw.line((109, 121, 164, 121), fill="#efcf9b")
-    draw.line((84, 124, 107, 124), fill="#815f51", width=2)
+    draw.rectangle((26, 55, 101, 100), "#546662")
+    for row, y in enumerate(range(56, 98, 6)):
+        for column, x in enumerate(range(27, 101, 6)):
+            color = "#a7ab91" if (row + column) % 2 == 0 else "#879688"
+            draw.rectangle((x, y, min(x + 4, 100), y + 4), color)
+            draw.line((x, y, min(x + 4, 100), y), fill="#b1b69f")
+    draw.line((27, 99, 100, 99), fill="#ebc991")
+
+    draw.rounded_rectangle((29, 107, 94, 146), radius=3, fill="#b68061", outline="#95624e")
+    draw.rectangle((32, 110, 91, 143), outline="#dfab7c")
+    draw.rounded_rectangle((132, 102, 195, 145), radius=3, fill="#a76458", outline="#8c5a51")
+    draw.rectangle((134, 104, 193, 143), "#b87d68", outline="#dbaa83")
+    for y in range(107, 143, 4):
+        for x in range(136 + y % 3, 191, 5):
+            draw.line((x, y, x + 1, y), fill="#c38b73")
+
+    draw.rectangle((99, 139, 124, 151), "#6f7970", outline="#59605b")
+    draw.rectangle((101, 141, 122, 149), outline="#aeab8a")
+    for x in range(103, 122, 3):
+        draw.line((x, 143, x, 147), fill="#899487")
+    draw.line((97, 152, 126, 152), fill="#bd9a7c")
+
+    for left, right in ((20, 96), (127, 203)):
+        draw.rectangle((left, 148, right, 153), "#865c46", outline=INK)
+        draw.line((left + 1, 149, right - 1, 149), fill="#e8c497")
+        draw.line((left + 1, 152, right - 1, 152), fill="#a5775a")
 
 
 def draw_back_wall(draw):
-    draw.rectangle((24, 29, 167, 55), "#f5d8a4", outline=INK)
-    draw.rectangle((26, 30, 165, 33), "#936851")
-    draw.line((27, 30, 164, 30), fill="#d99c69")
-    draw.rectangle((27, 45, 164, 53), "#d6ad7d")
-    draw.line((26, 46, 165, 46), fill="#f3e0b8")
-    for x in range(29, 165, 5):
-        draw.line((x, 49, x, 52), fill="#bb986f")
-    draw.rectangle((24, 54, 29, 120), "#aa7a5f", outline=INK)
-    draw.rectangle((162, 54, 167, 120), "#aa7a5f", outline=INK)
-    draw.line((26, 55, 26, 119), fill="#eec997")
-    draw.line((165, 55, 165, 119), fill="#eec997")
+    draw.rectangle((20, 27, 203, 55), "#efd1a0", outline=INK)
+    draw.rectangle((22, 28, 201, 31), "#8e674f")
+    draw.line((23, 28, 200, 28), fill="#dea372")
+    draw.rectangle((23, 47, 200, 54), "#c8a178")
+    draw.line((24, 47, 199, 47), fill="#f8e3ba")
+    for x in range(27, 200, 5):
+        draw.line((x, 50, x, 53), fill="#af8b69")
 
-    draw.rectangle((39, 35, 79, 47), WOOD_DARK, outline=INK)
-    draw.rectangle((41, 37, 77, 45), "#344447")
-    pixel_text(draw, (48, 39), "COFFEE", CREAM)
-    draw.point((43, 40), fill=BRASS)
-    draw.point((75, 40), fill=BRASS)
-    draw.rectangle((87, 35, 109, 49), WOOD_DARK, outline=INK)
-    draw.rectangle((89, 37, 107, 47), "#597c7d")
-    draw.rectangle((90, 38, 106, 41), "#9db6a1")
-    draw.line((98, 37, 98, 47), fill="#3a5153")
-    draw.line((89, 42, 107, 42), fill="#3a5153")
-    draw.line((86, 49, 110, 49), fill="#ead3aa")
+    for left in (20, 198):
+        draw.rectangle((left, 54, left + 5, 148), "#9a725b", outline=INK)
+        draw.line((left + 2, 55, left + 2, 147), fill="#e9c296")
 
-    draw.rectangle((124, 36, 153, 51), WOOD_DARK, outline=INK)
-    for y in (38, 44):
-        draw.rectangle((126, y, 151, y + 4), "#a67958")
-        for index, color in enumerate(("#ddd2a1", "#6f8d83", "#deb874", "#ba7b68")):
-            x = 127 + 6 * index
-            draw.rectangle((x, y, x + 2, y + 2), color)
-            draw.point((x + 1, y), fill="#f8e7b2")
-        draw.line((125, y + 4, 152, y + 4), fill="#62443a")
+    draw.rectangle((31, 34, 72, 47), WOOD_DARK, outline=INK)
+    draw.rectangle((33, 36, 70, 45), "#344f50")
+    pixel_text(draw, (36, 38), "MENU", CREAM)
+    for y, width in ((38, 12), (41, 8), (44, 10)):
+        draw.line((55, y, 55 + width, y), fill="#91a895")
 
+    draw.rectangle((77, 34, 99, 49), WOOD_DARK, outline=INK)
+    for y in (36, 43):
+        draw.rectangle((79, y, 97, y + 4), "#a07758")
+        for x, color in ((81, "#dcac75"), (87, "#769589"), (93, "#bf7e69")):
+            draw.rectangle((x, y + 1, x + 2, y + 3), color)
+            draw.point((x + 1, y + 1), fill=CREAM)
+        draw.line((78, y + 4, 98, y + 4), fill=WOOD_DARK)
 
-def draw_counter(draw):
-    draw.rounded_rectangle((34, 58, 84, 82), 4, "#986f56")
-    draw.rectangle((34, 62, 82, 78), WOOD_DARK, outline=INK)
-    draw.rectangle((36, 70, 80, 77), "#855747")
-    for x in range(41, 80, 8):
-        draw.line((x, 71, x, 76), fill="#6e4b40")
-        draw.point((x + 2, 73), fill=BRASS)
-    draw.rectangle((33, 59, 83, 70), "#f0be82", outline=INK)
-    draw.line((35, 60, 81, 60), fill="#ffe0a2")
-    draw.line((35, 68, 81, 68), fill="#c68955")
+    draw.ellipse((109, 34, 123, 46), "#aa784f", outline=WOOD_DARK)
+    draw.ellipse((111, 36, 121, 44), CREAM)
+    cup(draw, 114, 38, TEAL)
+    draw.line((110, 50, 121, 50), fill="#e0bc90")
 
-    draw.rectangle((38, 54, 52, 66), "#6a8280", outline=INK)
-    draw.rectangle((39, 55, 51, 57), "#b8c4ad")
-    draw.rectangle((40, 59, 50, 64), "#38484a")
-    draw.line((41, 60, 49, 60), fill="#a3b8a6")
-    draw.rectangle((43, 62, 47, 65), "#f0d4a4")
-    draw.point((48, 62), fill=BRASS)
-    for x in (54, 58, 62):
-        draw.rectangle((x, 62, x + 2, 64), CREAM)
-        draw.point((x + 1, 62), fill="#8d5c47")
-    draw.rectangle((69, 58, 77, 65), "#3a5557", outline=INK)
-    draw.rectangle((70, 59, 76, 61), "#92b49d")
-    draw.line((70, 63, 76, 63), fill="#d7c595")
-    draw.line((62, 52, 67, 52), fill="#fff1b4")
-    draw.point((64, 53), fill=BRASS)
+    draw.rectangle((133, 32, 192, 54), WOOD_DARK, outline=INK)
+    draw.rectangle((135, 34, 190, 51), "#718f88")
+    draw.rectangle((136, 35, 189, 41), "#a5b8a7")
+    draw.polygon(((139, 36), (145, 36), (136, 48), (136, 41)), "#cfccae")
+    draw.polygon(((172, 35), (178, 35), (165, 51), (159, 51)), "#b8c3ac")
+    draw.polygon(((136, 51), (145, 45), (153, 48), (169, 45), (189, 49), (189, 51)), "#64887e")
+    for x in (153, 171):
+        draw.line((x, 34, x, 51), fill="#3b5958", width=2)
+        draw.line((x + 2, 35, x + 2, 51), fill="#c2b59a")
+    draw.line((135, 43, 190, 43), fill="#516f69")
+    draw.rectangle((132, 51, 193, 54), "#e8ba84", outline=WOOD_DARK)
+    draw.line((134, 52, 191, 52), fill="#f5d7a1")
 
 
-def chair(draw, x, y, upholstery):
-    draw.ellipse((x - 5, y - 3, x + 5, y + 5), WOOD_DARK, outline=INK)
-    draw.rectangle((x - 3, y + 4, x - 2, y + 6), WOOD_DARK)
-    draw.rectangle((x + 2, y + 4, x + 3, y + 6), WOOD_DARK)
-    draw.ellipse((x - 4, y - 3, x + 4, y + 2), upholstery)
-    draw.line((x - 2, y - 2, x + 2, y - 2), fill="#b2bd8e")
+def draw_prep_counter(draw):
+    draw.rounded_rectangle((29, 62, 97, 72), radius=3, fill=SHADOW)
+    draw.rectangle((30, 53, 95, 69), "#9a664b", outline=INK)
+    draw.rectangle((31, 61, 94, 68), "#875842")
+    for x in range(34, 94, 10):
+        draw.rectangle((x, 62, x + 6, 67), "#a57151")
+        draw.line((x + 2, 63, x + 4, 63), fill=BRASS)
+    draw.rectangle((29, 53, 96, 61), "#e1b787", outline=WOOD_DARK)
+    draw.line((31, 54, 94, 54), fill="#f4d29e")
+    draw.line((31, 60, 94, 60), fill="#ac7c5b")
+
+    draw.rectangle((34, 49, 54, 59), "#5c7777", outline=INK)
+    draw.rectangle((35, 50, 53, 52), "#bdd1bc")
+    draw.rectangle((37, 53, 50, 57), "#3f5053")
+    draw.line((38, 53, 49, 53), fill="#e5ceb0")
+    draw.point((52, 53), fill=BRASS)
+    cup(draw, 41, 55)
+    draw.line((35, 58, 53, 58), fill="#9eb2a4")
+
+    draw.rectangle((59, 55, 66, 59), "#426466", outline=INK)
+    draw.polygon(((59, 48), (66, 48), (65, 54), (60, 54)), "#9d775a", INK)
+    draw.line((60, 49, 65, 49), fill="#d5b38b")
+
+    draw.rectangle((75, 54, 89, 59), "#879b96", outline="#5b6d68")
+    draw.rectangle((77, 55, 87, 57), "#56777a")
+    draw.line((82, 55, 82, 51, 85, 51, 85, 52), fill="#cad2b9")
+    cup(draw, 90, 54)
 
 
-def round_table(draw, x, y):
-    draw.ellipse((x - 11, y - 4, x + 13, y + 9), "#ab7b5b")
-    draw.rectangle((x - 1, y + 4, x + 1, y + 9), WOOD_DARK)
-    draw.ellipse((x - 11, y - 6, x + 11, y + 6), WOOD_DARK, outline=INK)
-    draw.ellipse((x - 10, y - 6, x + 10, y + 3), "#e5b079")
-    draw.line((x - 5, y - 5, x + 5, y - 5), fill="#f8cd8f")
-    draw.line((x - 8, y, x - 1, y), fill=WOOD)
-    draw.ellipse((x - 5, y - 3, x - 1, y + 1), "#bf8d67")
-    draw.rectangle((x - 5, y - 3, x - 3, y - 1), "#fff2c7")
-    draw.point((x - 2, y - 2), fill=CREAM)
-    draw.point((x - 4, y - 3), fill="#8c5b42")
-    draw.rectangle((x + 4, y - 2, x + 6, y + 1), "#709375")
-    draw.point((x + 5, y - 3), fill="#d9ac70")
+def draw_service_counter(draw):
+    draw.rounded_rectangle((29, 91, 100, 105), radius=4, fill=SHADOW)
+    draw.rectangle((31, 85, 98, 103), "#2b4549", outline=INK)
+    draw.rectangle((33, 91, 96, 100), TEAL)
+    for x in range(35, 97, 4):
+        draw.line((x, 92, x, 99), fill="#4f7c77")
+    draw.line((33, 101, 96, 101), fill="#bc8f59")
+    draw.rectangle((67, 93, 82, 98), "#314e50", outline="#c49b64")
+    draw.line((72, 95, 77, 95), fill=CREAM)
+
+    draw.rectangle((29, 82, 100, 91), WOOD_DARK, outline=INK)
+    draw.rectangle((30, 82, 99, 88), "#e3b580")
+    draw.line((31, 83, 98, 83), fill="#f1d19c")
+    draw.line((30, 89, 99, 89), fill="#c39162")
+
+    draw.rounded_rectangle((33, 73, 61, 88), radius=2, fill="#566f70", outline=INK)
+    draw.rectangle((35, 75, 59, 83), "#a0b1a1")
+    draw.rectangle((35, 76, 59, 77), "#b6c1ab")
+    draw.rectangle((35, 83, 59, 85), "#d4ad79")
+    for x in (36, 43, 50):
+        draw.ellipse((x, 79, x + 5, 83), "#a66652")
+        draw.line((x + 1, 79, x + 3, 79), fill="#f1cd8c")
+        draw.point((x + 3, 81), fill="#ce9363")
+    draw.line((58, 75, 54, 81), fill="#e2e3c4")
+    draw.line((35, 86, 59, 86), fill="#566765")
+
+    draw.rectangle((67, 83, 78, 87), "#4b6567", outline=INK)
+    draw.polygon(((68, 82), (68, 77), (76, 77), (77, 82)), "#34494c", INK)
+    draw.line((69, 78, 75, 78), fill="#b8c8a5")
+    draw.point((75, 80), fill=BRASS)
+
+    draw.rectangle((83, 85, 94, 88), "#a87857", outline="#955f48")
+    for x in (84, 90):
+        draw.polygon(((x, 82), (x + 4, 82), (x + 3, 86), (x + 1, 86)), "#f2d8aa", "#c09770")
+        draw.line((x, 82, x + 4, 82), fill="#fff1c9")
 
 
-def draw_seating(draw):
-    draw.rectangle((114, 60, 151, 68), WOOD_DARK, outline=INK)
-    draw.rectangle((115, 59, 150, 62), LEAF, outline=INK)
-    draw.rectangle((116, 63, 149, 66), "#79a080")
-    draw.line((126, 62, 126, 66), fill=LEAF)
-    draw.line((138, 62, 138, 66), fill=LEAF)
+def table_flowers(draw, x, y):
+    draw.rectangle((x, y, x + 3, y + 3), "#708e80")
+    draw.point((x + 1, y), fill="#b5b498")
+    draw.line((x + 2, y, x + 2, y - 2), fill="#54785e")
+    draw.point((x + 3, y - 2), fill="#c17968")
+    draw.point((x + 1, y - 3), fill="#f6ce83")
 
-    chair(draw, 133, 87, TEAL)
-    round_table(draw, 133, 75)
 
-    draw.rectangle((42, 88, 77, 115), "#856252")
-    draw.rectangle((43, 89, 76, 114), "#a7795d")
-    draw.rectangle((45, 91, 74, 112), "#c08967")
-    draw.rectangle((47, 93, 72, 110), outline="#dba683")
-    for x in range(47, 73, 5):
-        draw.point((x, 90), fill="#f0c49a")
-        draw.point((x, 113), fill="#f0c49a")
-    chair(draw, 45, 100, LEAF)
-    chair(draw, 74, 101, LEAF)
-    round_table(draw, 58, 100)
+def chair(draw, x, y, upholstery, facing_back=False):
+    draw.ellipse((x - 5, y + 3, x + 5, y + 8), SHADOW)
+    draw.rectangle((x - 4, y + 4, x - 3, y + 7), WOOD_DARK)
+    draw.rectangle((x + 3, y + 4, x + 4, y + 7), WOOD_DARK)
+    draw.rounded_rectangle((x - 5, y - 3, x + 5, y + 5), radius=2, fill=WOOD_DARK, outline=INK)
+    draw.rectangle((x - 4, y - 2, x + 4, y + 2), upholstery)
+    draw.line((x - 3, y - 2, x + 3, y - 2), fill="#bbc5a0")
+    back = y + 3 if facing_back else y - 4
+    draw.rounded_rectangle((x - 5, back, x + 5, back + 3), radius=1, fill=WOOD, outline=WOOD_DARK)
+    draw.line((x - 3, back + 1, x + 3, back + 1), fill="#edbb84")
 
-    chair(draw, 124, 107, LEAF)
-    chair(draw, 151, 110, LEAF)
-    round_table(draw, 137, 105)
-    plant(draw, 37, 115)
-    plant(draw, 156, 57, "#bb8c54")
+
+def banquette(draw, left, y, cushion_widths):
+    right = left + sum(cushion_widths) + 3
+    draw.rounded_rectangle((left, y + 8, right + 1, y + 15), radius=3, fill=SHADOW)
+    draw.rounded_rectangle((left, y, right, y + 13), radius=2, fill=WOOD_DARK, outline=INK)
+    draw.line((left + 2, y + 12, right - 2, y + 12), fill="#b2825d")
+    x = left + 2
+    for width in cushion_widths:
+        draw.rectangle((x, y + 1, x + width - 1, y + 6), "#466b64")
+        draw.line((x + 1, y + 2, x + width - 2, y + 2), fill="#88a18a")
+        draw.rectangle((x, y + 7, x + width - 1, y + 10), "#739482")
+        draw.point((x + width // 2, y + 4), fill="#a9ad8c")
+        draw.line((x + width - 1, y + 1, x + width - 1, y + 10), fill="#395755")
+        x += width
+
+
+def wood_table(draw, left, top, right, center_support=False):
+    draw.rounded_rectangle((left - 1, top + 5, right + 1, top + 14), radius=3, fill=SHADOW)
+    if center_support:
+        x = (left + right) // 2
+        draw.rectangle((x - 1, top + 7, x + 1, top + 13), WOOD_DARK)
+    else:
+        for x in (left + 3, right - 5):
+            draw.rectangle((x, top + 7, x + 2, top + 13), WOOD_DARK)
+    draw.rounded_rectangle((left, top, right, top + 9), radius=2, fill=WOOD_DARK, outline=INK)
+    draw.rounded_rectangle((left + 1, top + 1, right - 1, top + 6), radius=2, fill="#dfa872")
+    draw.line((left + 3, top + 1, right - 3, top + 1), fill="#f8ce91")
+    draw.line((left + 2, top + 7, right - 2, top + 7), fill=WOOD)
+
+
+def draw_booth(draw):
+    banquette(draw, 31, 108, (14, 14, 14, 14))
+    for left in (36, 65):
+        wood_table(draw, left, 123, left + 23, center_support=True)
+        cup(draw, left + 4, 126)
+        table_flowers(draw, left + 16, 126)
+        chair(draw, left + 4, 137, "#7e9482", facing_back=True)
+        chair(draw, left + 18, 137, "#7e9482", facing_back=True)
+
+
+def draw_window_seating(draw):
+    banquette(draw, 137, 55, (24, 24))
+    wood_table(draw, 141, 72, 184)
+    cup(draw, 147, 75)
+    table_flowers(draw, 162, 75)
+    draw.rectangle((174, 74, 180, 78), "#9a6658")
+    draw.line((175, 76, 179, 76), fill="#dba981")
+    chair(draw, 151, 89, "#6a8984", facing_back=True)
+    chair(draw, 174, 89, "#6a8984", facing_back=True)
+
+
+def draw_bistro(draw, x, upholstery):
+    chair(draw, x, 108, upholstery)
+    draw.ellipse((x - 11, 117, x + 11, 129), SHADOW)
+    draw.rectangle((x - 1, 122, x + 1, 129), WOOD_DARK)
+    draw.ellipse((x - 10, 115, x + 10, 125), WOOD_DARK, outline=INK)
+    draw.ellipse((x - 9, 115, x + 9, 122), "#e2af79")
+    draw.line((x - 5, 116, x + 5, 116), fill="#f9cf94")
+    cup(draw, x - 5, 118)
+    table_flowers(draw, x + 3, 118)
+    chair(draw, x, 134, upholstery, facing_back=True)
+
+
+def draw_menu_sign(draw):
+    draw.ellipse((136, 165, 161, 172), SHADOW)
+    draw.polygon(((139, 147), (154, 147), (160, 170), (152, 168)), "#79533f", INK)
+    draw.line((154, 151, 158, 168), fill="#b4835a")
+    draw.polygon(((139, 146), (157, 146), (155, 168), (136, 168)), "#aa7350", INK)
+    draw.polygon(((140, 148), (155, 148), (153, 165), (138, 165)), "#344b4b", WOOD_DARK)
+    draw.line((138, 169, 138, 171), fill=WOOD_DARK)
+    draw.line((153, 169, 153, 171), fill=WOOD_DARK)
+    for x, y in ((140, 149), (153, 149), (139, 164), (152, 164)):
+        draw.point((x, y), fill=BRASS)
+    draw.line((144, 152, 150, 152), fill="#f7daa1")
+    draw.line((144, 153, 145, 155, 149, 155, 150, 153), fill="#f7daa1")
+    draw.line((141, 158, 151, 158), fill="#acba9c")
+    draw.line((142, 160, 150, 160), fill="#90ab96")
+    draw.line((141, 162, 147, 162), fill="#cad0ab")
+
+
+def draw_planter(draw):
+    plant(draw, 29, 163, "#b86f54")
+
+
+def draw_front_window(draw, x):
+    draw.rectangle((x, 117, x + 49, 148), WOOD_DARK, outline=INK)
+    draw.rectangle((x + 2, 120, x + 47, 145), "#506a6b")
+    draw.rectangle((x + 4, 121, x + 45, 143), "#789088")
+    draw.rectangle((x + 4, 131, x + 45, 143), "#cd9b6b")
+    draw.polygon(
+        ((x + 9, 121), (x + 16, 121), (x + 4, 139), (x + 4, 128)),
+        "#a5b19d",
+    )
+    draw.polygon(
+        ((x + 39, 121), (x + 43, 121), (x + 29, 143), (x + 25, 143)),
+        "#a9b098",
+    )
+    draw.line((x + 2, 130, x + 47, 130), fill="#425c5d", width=2)
+    draw.line((x + 24, 120, x + 24, 144), fill=INK, width=2)
+    draw.rectangle((x - 1, 145, x + 50, 148), "#ead3a0", outline=WOOD_DARK)
+    draw.line((x + 1, 146, x + 48, 146), fill="#f8ddb0")
+
+
+def draw_facade(draw):
+    draw.rectangle((20, 103, 203, 153), "#d2a076", outline=INK)
+    draw.rectangle((23, 107, 200, 147), "#e9c38d")
+    draw.rectangle((22, 148, 201, 153), "#946750", outline=INK)
+    draw.line((23, 151, 200, 151), fill="#bc906c")
+    for x in (26, 87, 132, 193):
+        draw.rectangle((x, 114, x + 4, 147), "#b58260")
+        draw.line((x + 1, 115, x + 1, 145), fill="#f0d29c")
+        draw.rectangle((x - 1, 145, x + 5, 148), "#c4966a", outline="#9a6d52")
+    draw_front_window(draw, 34)
+    draw_front_window(draw, 140)
+
+    draw.rectangle((96, 115, 127, 153), WOOD_DARK, outline=INK)
+    draw.rectangle((98, 118, 125, 150), "#426366", outline=INK)
+    draw.rectangle((100, 123, 123, 142), "#799189")
+    draw.polygon(((105, 123), (109, 123), (100, 135), (100, 130)), "#abb5a0")
+    draw.polygon(((119, 123), (123, 123), (115, 136), (111, 136)), "#a1ad9a")
+    draw.rectangle((100, 140, 123, 148), "#b38159")
+    draw.line((100, 140, 123, 140), fill="#d4a476")
+    draw.line((111, 118, 111, 149), fill=INK, width=2)
+    for x in (107, 116):
+        draw.line((x, 137, x, 139), fill=BRASS)
+    draw.line((98, 152, 125, 152), fill="#dfb789")
+
+    draw.polygon(
+        ((94, 113), (129, 113), (135, 122), (135, 125),
+         (88, 125), (88, 122)),
+        TEAL, INK,
+    )
+    for x in (97, 109, 121):
+        draw.polygon(((x, 114), (x + 5, 114), (x + 6, 122), (x - 1, 122)), CREAM)
+        draw.line((x - 1, 123, x + 6, 123), fill="#c6986e")
+    draw.line((89, 124, 134, 124), fill="#335456")
+
+    for x in (91, 132):
+        draw.line((x, 129, x, 136), fill=INK, width=2)
+        draw.rectangle((x - 2, 132, x + 2, 137), BRASS, outline=WOOD_DARK)
+        draw.point((x, 134), fill="#fff0b2")
+
+
+def draw_roof(draw):
+    draw.polygon(
+        ((21, 13), (202, 13), (209, 20), (209, 106), (204, 113),
+         (19, 113), (14, 107), (14, 20)),
+        INK,
+    )
+    draw.rectangle((18, 17, 205, 100), "#3c6061", outline="#244146")
+    draw.rectangle((21, 20, 202, 97), TEAL)
+    draw.line((21, 19, 202, 19), fill="#6e9893")
+
+    for index, x in enumerate(range(25, 197, 12)):
+        draw.rectangle((x, 22, x + 9, 97), "#4b7879" if index % 3 == 1 else "#407174")
+        draw.line((x, 22, x, 97), fill="#31575a")
+        draw.line((x + 1, 24, x + 1, 96), fill=TEAL_LIGHT)
+        y = 33 + index % 5 * 9
+        draw.line((x + 3, y, x + 6, y), fill="#568488")
+        draw.point((x, 96), fill="#86a69a")
+
+    draw.rectangle((16, 99, 207, 110), "#4d7473", outline=INK)
+    draw.line((18, 100, 205, 100), fill="#94ab9c")
+    draw.line((18, 106, 205, 106), fill="#325557")
+    draw.line((20, 110, 203, 110), fill="#263e42")
+    draw.line((23, 112, 200, 112), fill="#bf9169")
+
+    draw.rectangle((164, 38, 186, 51), "#345b5d")
+    draw.rectangle((162, 34, 183, 49), "#667f77", outline=INK)
+    draw.rectangle((161, 32, 184, 39), "#a1aa93", outline=INK)
+    draw.line((163, 33, 182, 33), fill="#c8c5a4")
+    for x in range(164, 183, 3):
+        draw.line((x, 36, x, 37), fill="#607873")
+    draw.rectangle((164, 41, 181, 46), "#586e69")
+
+    draw.rectangle((70, 81, 154, 103), "#29494d")
+    draw.rectangle((72, 78, 151, 101), WOOD_DARK, outline=INK)
+    draw.rectangle((75, 80, 148, 98), "#efdfb1")
+    draw.line((76, 81, 147, 81), fill="#fff0c7")
+    draw.line((76, 97, 147, 97), fill="#bb9671")
+    pixel_text(draw, (93, 84), "HAZEL", "#36565b", scale=2)
+    for x in (82, 141):
+        draw.line((x - 2, 89, x + 2, 89), fill="#b88053")
+        draw.line((x, 87, x, 91), fill="#b88053")
+
+
+# Scene-space crop boxes, atlas positions, and painters in back-to-front order.
+# Match the atlas rectangles in cafe_furniture.png.meta when moving a crop.
+INDOOR_PROPS = (
+    ((28, 47, 98, 73), (1, 1), draw_prep_counter),
+    ((134, 53, 193, 100), (70, 39), draw_window_seating),
+    ((28, 72, 101, 106), (74, 1), draw_service_counter),
+    ((132, 103, 162, 144), (132, 39), lambda draw: draw_bistro(draw, 144, "#739085")),
+    ((167, 103, 197, 144), (1, 81), lambda draw: draw_bistro(draw, 185, "#a47b66")),
+    ((29, 107, 95, 146), (1, 39), draw_booth),
+)
+PLANTER_BOUNDS = (21, 150, 38, 173)
+PORCH_PROPS = (
+    ((135, 145, 162, 173), (150, 1), draw_menu_sign),
+    (PLANTER_BOUNDS, (34, 81), draw_planter),
+)
 
 
 def draw_interior():
@@ -231,112 +469,7 @@ def draw_interior():
     draw_entry(draw)
     draw_floor(draw)
     draw_back_wall(draw)
-    draw_counter(draw)
-    draw_seating(draw)
     return interior
-
-
-def draw_front_window(draw, x):
-    draw.rectangle((x, 99, x + 39, 123), WOOD_DARK, outline=INK)
-    draw.rectangle((x + 2, 102, x + 37, 119), "#47656a")
-    draw.rectangle((x + 3, 104, x + 36, 117), "#69817b")
-    draw.rectangle((x + 4, 109, x + 35, 117), "#d9a36b")
-    draw.polygon(
-        ((x + 8, 104), (x + 11, 104), (x + 4, 116), (x + 4, 111)),
-        fill="#9dae99",
-    )
-    draw.polygon(
-        ((x + 28, 104), (x + 30, 104), (x + 22, 117), (x + 19, 117)),
-        fill="#a7ad87",
-    )
-    for y in (106, 114):
-        draw.line((x + 2, y, x + 37, y), fill="#3e5657")
-    draw.line((x + 19, 102, x + 19, 119), fill=INK, width=2)
-    draw.rectangle((x - 1, 120, x + 40, 122), "#f5d7a0", outline=WOOD_DARK)
-
-
-def draw_facade(draw):
-    draw.rectangle((24, 86, 167, 125), "#d7a276", outline=INK)
-    draw.rectangle((27, 89, 164, 120), "#ebc990")
-    draw.rectangle((27, 91, 164, 95), "#b78261")
-    draw.rectangle((25, 120, 166, 125), "#91624f", outline=INK)
-    draw.line((26, 124, 165, 124), fill="#bf8d68")
-    for x in (29, 72, 115, 158):
-        draw.rectangle((x, 96, x + 3, 120), "#bf8962")
-        draw.line((x + 1, 97, x + 1, 117), fill="#f1d29c")
-    draw_front_window(draw, 33)
-    draw_front_window(draw, 119)
-
-    draw.rectangle((83, 96, 108, 126), WOOD_DARK, outline=INK)
-    draw.rectangle((85, 99, 106, 122), "#46686c", outline=INK)
-    draw.rectangle((87, 106, 104, 120), "#bb8a67")
-    draw.rectangle((87, 106, 104, 111), "#789089")
-    draw.line((88, 108, 91, 104), fill="#c1bd96")
-    draw.line((95, 99, 95, 122), fill=INK, width=2)
-    for x in (92, 99):
-        draw.line((x, 113, x, 115), fill=BRASS)
-    draw.rectangle((84, 123, 107, 126), "#6c554a", outline=INK)
-    draw.line((86, 124, 105, 124), fill="#e4bc8d")
-
-    draw.polygon(
-        ((81, 94), (110, 94), (114, 101), (114, 104),
-         (77, 104), (77, 101)),
-        fill=TEAL, outline=INK,
-    )
-    for x in (84, 94, 104):
-        draw.polygon(((x, 95), (x + 4, 95), (x + 5, 101), (x - 1, 101)), fill=CREAM)
-        draw.line((x - 1, 102, x + 5, 102), fill="#c39369")
-    draw.line((78, 103, 113, 103), fill="#345252")
-
-    for x in (77, 114):
-        draw.line((x, 108, x, 113), fill=INK, width=2)
-        draw.rectangle((x - 2, 111, x + 2, 114), BRASS, outline=WOOD_DARK)
-        draw.point((x, 112), fill="#fff0b2")
-    for x in (31, 174):
-        draw.line((x, 127, x, 128), fill="#a78166")
-
-
-def draw_roof(draw):
-    draw.polygon(
-        ((23, 17), (168, 17), (173, 23), (173, 89), (169, 95),
-         (22, 95), (18, 90), (18, 23)),
-        fill=INK,
-    )
-    draw.rectangle((22, 20, 169, 83), "#396466", outline="#203e43")
-    draw.rectangle((25, 23, 166, 79), TEAL)
-    draw.line((24, 22, 167, 22), fill="#649293")
-    draw.line((22, 25, 22, 79), fill="#558485")
-    draw.line((168, 25, 168, 79), fill="#294749")
-
-    for index, x in enumerate(range(29, 165, 12)):
-        draw.rectangle((x, 25, x + 9, 79), "#49787b" if index % 3 == 1 else "#407174")
-        draw.line((x, 25, x, 79), fill="#31585c")
-        draw.line((x + 1, 27, x + 1, 78), fill=TEAL_LIGHT)
-        draw.line((x + 4, 34 + index % 4 * 7, x + 7, 34 + index % 4 * 7), fill="#558186")
-        draw.point((x, 79), fill="#86a49a")
-
-    draw.rectangle((20, 82, 171, 91), "#4f7473", outline=INK)
-    draw.line((22, 83, 169, 83), fill="#8fa89a")
-    draw.line((22, 88, 169, 88), fill="#345759")
-    draw.line((24, 91, 167, 91), fill="#233b40")
-    draw.line((28, 93, 163, 93), fill="#ba8d66")
-
-    draw.rectangle((133, 38, 152, 50), "#33565b")
-    draw.rectangle((132, 36, 149, 47), "#536d6b", outline=INK)
-    draw.rectangle((131, 33, 150, 39), "#a2a492", outline=INK)
-    draw.line((133, 34, 148, 34), fill="#d4c4a3")
-    for x in range(134, 148, 3):
-        draw.line((x, 36, x, 37), fill="#657d78")
-
-    draw.rectangle((60, 65, 131, 85), "#29474c")
-    draw.rectangle((62, 64, 129, 84), WOOD_DARK, outline=INK)
-    draw.rectangle((64, 66, 127, 81), "#ede0b5")
-    draw.line((65, 67, 126, 67), fill="#fff0c3")
-    draw.line((65, 80, 126, 80), fill="#ba9671")
-    pixel_text(draw, (77, 69), "HAZEL", "#35535a", scale=2)
-    for x in (69, 121):
-        draw.line((x - 1, 74, x + 1, 74), fill="#b68052")
-        draw.line((x, 73, x, 75), fill="#b68052")
 
 
 def draw_exterior_overlay():
@@ -347,17 +480,34 @@ def draw_exterior_overlay():
     return exterior
 
 
-def save_preview(path, interior, exterior):
+def draw_furniture():
+    atlas = Image.new("RGBA", ATLAS_SIZE)
+    furniture = Image.new("RGBA", SIZE)
+    porch = Image.new("RGBA", SIZE)
+    for preview, props in ((furniture, INDOOR_PROPS), (porch, PORCH_PROPS)):
+        for bounds, atlas_position, paint in props:
+            layer = Image.new("RGBA", SIZE)
+            paint(ImageDraw.Draw(layer))
+            prop = layer.crop(bounds)
+            atlas.paste(prop, atlas_position)
+            preview.alpha_composite(prop, bounds[:2])
+    porch.alpha_composite(porch.crop(PLANTER_BOUNDS), (186, 150))
+    return atlas, furniture, porch
+
+
+def save_preview(path, interior, exterior, furniture, porch):
     outside = Image.alpha_composite(interior, exterior)
-    background = "#e7e0d2"
-    preview = Image.new("RGB", (424, 184), background)
+    outside.alpha_composite(porch)
+    inside = Image.alpha_composite(interior, furniture)
+    inside.alpha_composite(porch)
+
+    preview = Image.new("RGB", (488, 212), "#e7e0d2")
     draw = ImageDraw.Draw(preview)
-    draw.rounded_rectangle((12, 9, 207, 172), 8, "#f6f0e3")
-    draw.rounded_rectangle((216, 9, 411, 172), 8, "#f6f0e3")
-    preview.paste(outside, (14, 11), outside)
-    preview.paste(interior, (218, 11), interior)
+    for x, layer in ((12, outside), (248, inside)):
+        draw.rounded_rectangle((x, 9, x + 228, 202), radius=8, fill="#f6f0e3")
+        preview.paste(layer, (x + 2, 10), layer)
     path.parent.mkdir(parents=True, exist_ok=True)
-    preview.resize((1272, 552), Image.Resampling.NEAREST).save(path)
+    preview.resize((1464, 636), Image.Resampling.NEAREST).save(path)
 
 
 def main():
@@ -365,14 +515,16 @@ def main():
     parser.add_argument("--output", type=Path, default=OUTPUT)
     parser.add_argument("--preview", type=Path, help="Optional comparison PNG")
     args = parser.parse_args()
+
     interior = draw_interior()
     exterior = draw_exterior_overlay()
-
+    atlas, furniture, porch = draw_furniture()
     args.output.mkdir(parents=True, exist_ok=True)
     interior.save(args.output / "cafe_interior.png")
     exterior.save(args.output / "cafe_exterior_overlay.png")
+    atlas.save(args.output / "cafe_furniture.png")
     if args.preview:
-        save_preview(args.preview, interior, exterior)
+        save_preview(args.preview, interior, exterior, furniture, porch)
 
 
 if __name__ == "__main__":

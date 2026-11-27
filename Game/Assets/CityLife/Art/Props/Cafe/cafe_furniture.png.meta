@@ -1,0 +1,349 @@
+fileFormatVersion: 2
+guid: 460f192a81d15a44ea38d60b9aa10c0f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 524277441192503178
+    second: cafe_furniture_0
+  - first:
+      213: 7820915181424112750
+    second: cafe_furniture_1
+  - first:
+      213: 2529428881298825548
+    second: cafe_furniture_2
+  - first:
+      213: 8700096336444270033
+    second: cafe_furniture_3
+  - first:
+      213: 1018947096717372674
+    second: cafe_furniture_4
+  - first:
+      213: 7473559012824087709
+    second: cafe_furniture_5
+  - first:
+      213: 1369559535348778163
+    second: cafe_furniture_6
+  - first:
+      213: 7619239970197655412
+    second: cafe_furniture_7
+  - first:
+      213: -2610917845187300009
+    second: cafe_furniture_8
+  - first:
+      213: 5925854433180956825
+    second: cafe_furniture_9
+  - first:
+      213: -4824100391397611448
+    second: cafe_furniture_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PrepCounter
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 101
+        width: 70
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: 0.115384616}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff409094c5cbcc4aa7186c16950896e
+      internalID: 661681300
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ServiceCounter
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 93
+        width: 73
+        height: 34
+      alignment: 9
+      pivot: {x: 0.49315068, y: 0.05882353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3773213c0a7cd549b0a2b5f1ddc706d
+      internalID: 1106729671
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Booth
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 50
+        width: 66
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.051282052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7fb7003d7ae534891e30993d5013a0
+      internalID: -1259886296
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WindowSeating
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 42
+        width: 59
+        height: 47
+      alignment: 9
+      pivot: {x: 0.4915254, y: 0.08510638}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7638376f4e62156489ef7dfeebd6a5f9
+      internalID: 653004401
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BistroLeft
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 48
+        width: 30
+        height: 41
+      alignment: 9
+      pivot: {x: 0.4, y: 0.07317073}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2fac766729211841951bb9e51d514df
+      internalID: 1771399139
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BistroRight
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 6
+        width: 30
+        height: 41
+      alignment: 9
+      pivot: {x: 0.6, y: 0.07317073}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a091ad5130a11e94e81f1db17790636a
+      internalID: 1316210512
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuSign
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 99
+        width: 27
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4814815, y: 0.071428575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d4686b21f789649ad1c7535ff9a1ed
+      internalID: -1515838640
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planter
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 24
+        width: 17
+        height: 23
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.13043478}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd491a62bf687304cac2097460be908f
+      internalID: 82104402
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    outline: []
+    customData:
+    physicsShape: []
+    bones: []
+    spriteID: 8c7ec950ee828f64ebe844543a18eefa
+    internalID: 0
+    vertices: []
+    indices:
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BistroLeft: 1771399139
+      BistroRight: 1316210512
+      Booth: -1259886296
+      MenuSign: -1515838640
+      Planter: 82104402
+      PrepCounter: 661681300
+      ServiceCounter: 1106729671
+      WindowSeating: 653004401
+  mipmapLimitGroupName:
+  pSDRemoveMatte: 0
+  userData:
+  assetBundleName:
+  assetBundleVariant:

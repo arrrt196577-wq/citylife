@@ -19,7 +19,7 @@ CityLife 使用 Unity 作为游戏引擎，并用 C# 编写游戏逻辑。
 
 | 路径 | 用途 |
 | --- | --- |
-| [ArtSource/Scripts/](ArtSource/Scripts/) | 能重复生成成品的绘图脚本，例如 [咖啡厅生成脚本](ArtSource/Scripts/draw_cafe.py)。 |
+| [ArtSource/Scripts/](ArtSource/Scripts/) | 能重复生成成品的绘图脚本。[咖啡厅生成脚本](ArtSource/Scripts/draw_cafe.py)输出室内底图、外观和家具图集，也可用 `--preview` 导出内外对照图。 |
 | [ArtSource/Originals/](ArtSource/Originals/) | Pixelorama 的 .pxo 等可编辑原稿，可按建筑或道具分子目录存放。 |
 | [ArtSource/Drafts/](ArtSource/Drafts/) | 角色草图、配色试稿和动画测试。 |
 
@@ -29,11 +29,12 @@ CityLife 使用 Unity 作为游戏引擎，并用 C# 编写游戏逻辑。
 | --- | --- |
 | [Game/Assets/CityLife/](Game/Assets/CityLife/) | CityLife 的游戏代码和素材。 |
 | [Scripts/PlayerMovement.cs](Game/Assets/CityLife/Scripts/PlayerMovement.cs) | 使用 Player/Move 输入移动角色，并驱动四方向走路与待机动画。 |
+| [Scripts/CafeInterior.cs](Game/Assets/CityLife/Scripts/CafeInterior.cs) | 根据角色脚下的位置显示或隐藏咖啡厅外观。 |
 | [Art/Characters/](Game/Assets/CityLife/Art/Characters/) | 女主角的正面站姿与四方向走路图集。 |
 | [Animations/Player/](Game/Assets/CityLife/Animations/Player/) | 主角 Animator Controller 与四方向走路、待机动画。 |
 | [Art/Props/](Game/Assets/CityLife/Art/Props/) | 招牌、售货机和家具等道具素材。 |
-| [Art/Props/Cafe/](Game/Assets/CityLife/Art/Props/Cafe/) | 咖啡厅的室内底图和外观覆盖层。两张图使用相同坐标、原点和 16 PPU。角色在外时显示两层，在内时隐藏外观覆盖层。 |
-| [Game/Assets/Scenes/](Game/Assets/Scenes/) | [示例场景](Game/Assets/Scenes/SampleScene.unity)包含主角四方向移动与动画，以及咖啡厅室内和外观两层精灵。 |
+| [Art/Props/Cafe/](Game/Assets/CityLife/Art/Props/Cafe/) | 咖啡厅的室内底图、外观覆盖层和独立家具图集。精灵均使用 16 PPU，外观和家具按接地点与角色排序。 |
+| [Game/Assets/Scenes/](Game/Assets/Scenes/) | [示例场景](Game/Assets/Scenes/SampleScene.unity)包含主角四方向移动与动画、可步行进出的咖啡厅，以及墙体和家具碰撞。 |
 | [Game/Assets/Settings/](Game/Assets/Settings/) | 2D 渲染管线、输入动作和场景模板配置。 |
 | [Game/Assets/Welcome/](Game/Assets/Welcome/) | Unity 2D 模板的欢迎页资源和脚本。 |
 | [Game/Packages/](Game/Packages/) | Unity 包依赖清单和锁定版本。 |
