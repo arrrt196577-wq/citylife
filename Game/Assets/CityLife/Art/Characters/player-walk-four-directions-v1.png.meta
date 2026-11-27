@@ -1,0 +1,1199 @@
+fileFormatVersion: 2
+guid: 5b8acd519c26c7c449df8f5e966b9cd1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6633666665668413586
+    second: player-walk-four-directions-v1_0
+  - first:
+      213: 4674696064859803611
+    second: player-walk-four-directions-v1_1
+  - first:
+      213: -4254172546551507571
+    second: player-walk-four-directions-v1_2
+  - first:
+      213: -817348005326172890
+    second: player-walk-four-directions-v1_3
+  - first:
+      213: 4365731783310103313
+    second: player-walk-four-directions-v1_4
+  - first:
+      213: -1787542848771947608
+    second: player-walk-four-directions-v1_5
+  - first:
+      213: 1065366089842518289
+    second: player-walk-four-directions-v1_6
+  - first:
+      213: -3362831049715580739
+    second: player-walk-four-directions-v1_7
+  - first:
+      213: 3020712668595459225
+    second: player-walk-four-directions-v1_8
+  - first:
+      213: -760644346048547427
+    second: player-walk-four-directions-v1_9
+  - first:
+      213: -5569917166518874030
+    second: player-walk-four-directions-v1_10
+  - first:
+      213: -6510191989834548897
+    second: player-walk-four-directions-v1_11
+  - first:
+      213: -8270595094144662568
+    second: player-walk-four-directions-v1_12
+  - first:
+      213: 4850692325274863475
+    second: player-walk-four-directions-v1_13
+  - first:
+      213: -314083604177975787
+    second: player-walk-four-directions-v1_14
+  - first:
+      213: -4260179923918881189
+    second: player-walk-four-directions-v1_15
+  - first:
+      213: -2860497248770820685
+    second: player-walk-four-directions-v1_16
+  - first:
+      213: 2617361245977558004
+    second: player-walk-four-directions-v1_17
+  - first:
+      213: 4049666678207774306
+    second: player-walk-four-directions-v1_18
+  - first:
+      213: -8497407450266324294
+    second: player-walk-four-directions-v1_19
+  - first:
+      213: 5203746468611122851
+    second: player-walk-four-directions-v1_20
+  - first:
+      213: -668838740440763912
+    second: player-walk-four-directions-v1_21
+  - first:
+      213: 4409149603283215003
+    second: player-walk-four-directions-v1_22
+  - first:
+      213: -8764799556091953719
+    second: player-walk-four-directions-v1_23
+  - first:
+      213: 698413831132615204
+    second: player-walk-four-directions-v1_24
+  - first:
+      213: -3929880383214241743
+    second: player-walk-four-directions-v1_25
+  - first:
+      213: -8768365093581418673
+    second: player-walk-four-directions-v1_26
+  - first:
+      213: 4951334101059704571
+    second: player-walk-four-directions-v1_27
+  - first:
+      213: -4948962430888451711
+    second: player-walk-four-directions-v1_28
+  - first:
+      213: 5239931989858775781
+    second: player-walk-four-directions-v1_29
+  - first:
+      213: -7176749425290351621
+    second: player-walk-four-directions-v1_30
+  - first:
+      213: -3002395260436079473
+    second: player-walk-four-directions-v1_31
+  - first:
+      213: -1718748757361192017
+    second: player-walk-four-directions-v1_32
+  - first:
+      213: -3473983154615489979
+    second: player-walk-four-directions-v1_33
+  - first:
+      213: -5048046155245568063
+    second: player-walk-four-directions-v1_34
+  - first:
+      213: -1083260947543695792
+    second: player-walk-four-directions-v1_35
+  - first:
+      213: -3151378343412542255
+    second: player-walk-four-directions-v1_36
+  - first:
+      213: 1669821736501144339
+    second: player-walk-four-directions-v1_37
+  - first:
+      213: 4490125060741148725
+    second: player-walk-four-directions-v1_38
+  - first:
+      213: 3208627100242444217
+    second: player-walk-four-directions-v1_39
+  - first:
+      213: 8777013076977480119
+    second: player-walk-four-directions-v1_40
+  - first:
+      213: -3830675469647437672
+    second: player-walk-four-directions-v1_41
+  - first:
+      213: 2231170712065541473
+    second: player-walk-four-directions-v1_42
+  - first:
+      213: -4413534870021214591
+    second: player-walk-four-directions-v1_43
+  - first:
+      213: 1617638363858284774
+    second: player-walk-four-directions-v1_44
+  - first:
+      213: -5795918653676662408
+    second: player-walk-four-directions-v1_45
+  - first:
+      213: -8748294677126823369
+    second: player-walk-four-directions-v1_46
+  - first:
+      213: 2811536621544299083
+    second: player-walk-four-directions-v1_47
+  - first:
+      213: 8431878603834403258
+    second: player-walk-four-directions-v1_48
+  - first:
+      213: 6618815145093780532
+    second: player-walk-four-directions-v1_49
+  - first:
+      213: -567050339174371485
+    second: player-walk-four-directions-v1_50
+  - first:
+      213: 1114829884899712446
+    second: player-walk-four-directions-v1_51
+  - first:
+      213: 7314899439108327317
+    second: player-walk-four-directions-v1_52
+  - first:
+      213: 5737038162142535950
+    second: player-walk-four-directions-v1_53
+  - first:
+      213: 363628972000444358
+    second: player-walk-four-directions-v1_54
+  - first:
+      213: 5546229540979466367
+    second: player-walk-four-directions-v1_55
+  - first:
+      213: -190437730006491467
+    second: player-walk-four-directions-v1_56
+  - first:
+      213: -489542989993043706
+    second: player-walk-four-directions-v1_57
+  - first:
+      213: 8490716648983775564
+    second: player-walk-four-directions-v1_58
+  - first:
+      213: -4764773392988491317
+    second: player-walk-four-directions-v1_59
+  - first:
+      213: -4853219052716944679
+    second: player-walk-four-directions-v1_60
+  - first:
+      213: 2387149820507064946
+    second: player-walk-four-directions-v1_61
+  - first:
+      213: 5015206129123787909
+    second: player-walk-four-directions-v1_62
+  - first:
+      213: -1328473669107252533
+    second: player-walk-four-directions-v1_63
+  - first:
+      213: 6937698048167646840
+    second: player-walk-four-directions-v1_64
+  - first:
+      213: -4397318114796479324
+    second: player-walk-four-directions-v1_65
+  - first:
+      213: 8290402339577985648
+    second: player-walk-four-directions-v1_66
+  - first:
+      213: 7351191261857708810
+    second: player-walk-four-directions-v1_67
+  - first:
+      213: -1422481335762809179
+    second: player-walk-four-directions-v1_68
+  - first:
+      213: -5682961228114497888
+    second: player-walk-four-directions-v1_69
+  - first:
+      213: -1569512253228727581
+    second: player-walk-four-directions-v1_70
+  - first:
+      213: 4752824838429168340
+    second: player-walk-four-directions-v1_71
+  - first:
+      213: 3110644899530942905
+    second: player-walk-four-directions-v1_72
+  - first:
+      213: -1162926678152037108
+    second: player-walk-four-directions-v1_73
+  - first:
+      213: 6817344780709834614
+    second: player-walk-four-directions-v1_74
+  - first:
+      213: 3113496255403021279
+    second: player-walk-four-directions-v1_75
+  - first:
+      213: -1917826162667977413
+    second: player-walk-four-directions-v1_76
+  - first:
+      213: -5290725010683395066
+    second: player-walk-four-directions-v1_77
+  - first:
+      213: -3160219508353808486
+    second: player-walk-four-directions-v1_78
+  - first:
+      213: 3175620591510952851
+    second: player-walk-four-directions-v1_79
+  - first:
+      213: 8638542202412606160
+    second: player-walk-four-directions-v1_80
+  - first:
+      213: -216506029652501845
+    second: player-walk-four-directions-v1_81
+  - first:
+      213: -5403474702347475969
+    second: player-walk-four-directions-v1_82
+  - first:
+      213: -7713137258433537905
+    second: player-walk-four-directions-v1_83
+  - first:
+      213: -8466578252395377120
+    second: player-walk-four-directions-v1_84
+  - first:
+      213: -5814375395780833725
+    second: player-walk-four-directions-v1_85
+  - first:
+      213: 8715140496737149763
+    second: player-walk-four-directions-v1_86
+  - first:
+      213: 800922980192633518
+    second: player-walk-four-directions-v1_87
+  - first:
+      213: 6432202077896589308
+    second: player-walk-four-directions-v1_88
+  - first:
+      213: -8978998400880857589
+    second: player-walk-four-directions-v1_89
+  - first:
+      213: -3113075533590565607
+    second: player-walk-four-directions-v1_90
+  - first:
+      213: -3627629861375562768
+    second: player-walk-four-directions-v1_91
+  - first:
+      213: -5604768964997211236
+    second: player-walk-four-directions-v1_92
+  - first:
+      213: -1290995370558330815
+    second: player-walk-four-directions-v1_93
+  - first:
+      213: 3494408569388508819
+    second: player-walk-four-directions-v1_94
+  - first:
+      213: 2537079215477169683
+    second: player-walk-four-directions-v1_95
+  - first:
+      213: 5502035495291086306
+    second: player-walk-four-directions-v1_96
+  - first:
+      213: -5202900075312010557
+    second: player-walk-four-directions-v1_97
+  - first:
+      213: 3858211394047608783
+    second: player-walk-four-directions-v1_98
+  - first:
+      213: -5260430567934848479
+    second: player-walk-four-directions-v1_99
+  - first:
+      213: 8639782190706311300
+    second: player-walk-four-directions-v1_100
+  - first:
+      213: 7010291319987581790
+    second: player-walk-four-directions-v1_101
+  - first:
+      213: -664462251971445834
+    second: player-walk-four-directions-v1_102
+  - first:
+      213: -8241522584161369138
+    second: player-walk-four-directions-v1_103
+  - first:
+      213: 2379408961974888521
+    second: player-walk-four-directions-v1_104
+  - first:
+      213: -3377636555320484424
+    second: player-walk-four-directions-v1_105
+  - first:
+      213: 8897107986185297164
+    second: player-walk-four-directions-v1_106
+  - first:
+      213: 8259894187934549399
+    second: player-walk-four-directions-v1_107
+  - first:
+      213: 6192854510743680720
+    second: player-walk-four-directions-v1_108
+  - first:
+      213: -1950871114684684222
+    second: player-walk-four-directions-v1_109
+  - first:
+      213: 8092188434334722351
+    second: player-walk-four-directions-v1_110
+  - first:
+      213: -1825070374755809563
+    second: player-walk-four-directions-v1_111
+  - first:
+      213: -1255812165204248199
+    second: player-walk-four-directions-v1_112
+  - first:
+      213: 4314194314088634925
+    second: player-walk-four-directions-v1_113
+  - first:
+      213: -1358226252002304353
+    second: player-walk-four-directions-v1_114
+  - first:
+      213: -5215756509379162184
+    second: player-walk-four-directions-v1_115
+  - first:
+      213: -4439536320665485868
+    second: player-walk-four-directions-v1_116
+  - first:
+      213: 5677088279467665996
+    second: player-walk-four-directions-v1_117
+  - first:
+      213: -4780207240414013013
+    second: player-walk-four-directions-v1_118
+  - first:
+      213: 6050992768791916314
+    second: player-walk-four-directions-v1_119
+  - first:
+      213: -7147063172017293088
+    second: player-walk-four-directions-v1_120
+  - first:
+      213: -6697014730433584367
+    second: player-walk-four-directions-v1_121
+  - first:
+      213: -1579301858275955233
+    second: player-walk-four-directions-v1_122
+  - first:
+      213: -2619138765798035746
+    second: player-walk-four-directions-v1_123
+  - first:
+      213: 3555542613260193228
+    second: player-walk-four-directions-v1_124
+  - first:
+      213: -7799947281555924106
+    second: player-walk-four-directions-v1_125
+  - first:
+      213: 2372384558677440176
+    second: player-walk-four-directions-v1_126
+  - first:
+      213: -3322146274867609670
+    second: player-walk-four-directions-v1_127
+  - first:
+      213: -5730413156820864232
+    second: player-walk-four-directions-v1_128
+  - first:
+      213: -2841862087077628390
+    second: player-walk-four-directions-v1_129
+  - first:
+      213: -431915118310197223
+    second: player-walk-four-directions-v1_130
+  - first:
+      213: -4817280016792102072
+    second: player-walk-four-directions-v1_131
+  - first:
+      213: 5116916357960993837
+    second: player-walk-four-directions-v1_132
+  - first:
+      213: -7523782495731163023
+    second: player-walk-four-directions-v1_133
+  - first:
+      213: 628069763366600069
+    second: player-walk-four-directions-v1_134
+  - first:
+      213: -134228846588205767
+    second: player-walk-four-directions-v1_135
+  - first:
+      213: -9070503517618424578
+    second: player-walk-four-directions-v1_136
+  - first:
+      213: 9040132448428483696
+    second: player-walk-four-directions-v1_137
+  - first:
+      213: -2841243485866605424
+    second: player-walk-four-directions-v1_138
+  - first:
+      213: -7879794623945477379
+    second: player-walk-four-directions-v1_139
+  - first:
+      213: -1229068824296455824
+    second: player-walk-four-directions-v1_140
+  - first:
+      213: 5689444398201896834
+    second: player-walk-four-directions-v1_141
+  - first:
+      213: 2695017993436405622
+    second: player-walk-four-directions-v1_142
+  - first:
+      213: -5974272507986529469
+    second: player-walk-four-directions-v1_143
+  - first:
+      213: 7623884079043084666
+    second: player-walk-four-directions-v1_144
+  - first:
+      213: 7260117703906994286
+    second: player-walk-four-directions-v1_145
+  - first:
+      213: -6378634515214762060
+    second: player-walk-four-directions-v1_146
+  - first:
+      213: 6110456499643524530
+    second: player-walk-four-directions-v1_147
+  - first:
+      213: -866480494572191507
+    second: player-walk-four-directions-v1_148
+  - first:
+      213: -2457192002058756876
+    second: player-walk-four-directions-v1_149
+  - first:
+      213: 6947263133600006949
+    second: player-walk-four-directions-v1_150
+  - first:
+      213: 5105433944326797446
+    second: player-walk-four-directions-v1_151
+  - first:
+      213: 7081783749752569685
+    second: player-walk-four-directions-v1_152
+  - first:
+      213: -1375877264620209699
+    second: player-walk-four-directions-v1_153
+  - first:
+      213: -7942986773814712779
+    second: player-walk-four-directions-v1_154
+  - first:
+      213: 7135701210786663460
+    second: player-walk-four-directions-v1_155
+  - first:
+      213: -7121219904123485996
+    second: player-walk-four-directions-v1_156
+  - first:
+      213: -6804185423338107446
+    second: player-walk-four-directions-v1_157
+  - first:
+      213: 4481013824218769158
+    second: player-walk-four-directions-v1_158
+  - first:
+      213: 2326953311054223523
+    second: player-walk-four-directions-v1_159
+  - first:
+      213: -7682201179198622471
+    second: player-walk-four-directions-v1_160
+  - first:
+      213: 2027162250059673571
+    second: player-walk-four-directions-v1_161
+  - first:
+      213: 668688830505256776
+    second: player-walk-four-directions-v1_162
+  - first:
+      213: 6700904345678130585
+    second: player-walk-four-directions-v1_163
+  - first:
+      213: -2026806342645023969
+    second: player-walk-four-directions-v1_164
+  - first:
+      213: -479045949509533075
+    second: player-walk-four-directions-v1_165
+  - first:
+      213: -6184729879529675677
+    second: player-walk-four-directions-v1_166
+  - first:
+      213: -7121281015313176949
+    second: player-walk-four-directions-v1_167
+  - first:
+      213: -563838932657569267
+    second: player-walk-four-directions-v1_168
+  - first:
+      213: -2994429496338239456
+    second: player-walk-four-directions-v1_169
+  - first:
+      213: -8808618112966008475
+    second: player-walk-four-directions-v1_170
+  - first:
+      213: 449078049309393830
+    second: player-walk-four-directions-v1_171
+  - first:
+      213: -3185316898539934780
+    second: player-walk-four-directions-v1_172
+  - first:
+      213: -6968472004586877631
+    second: player-walk-four-directions-v1_173
+  - first:
+      213: 8807184368813854536
+    second: player-walk-four-directions-v1_174
+  - first:
+      213: 2032175460833481219
+    second: player-walk-four-directions-v1_175
+  - first:
+      213: -6605929519498478150
+    second: player-walk-four-directions-v1_176
+  - first:
+      213: 2596219986220799332
+    second: player-walk-four-directions-v1_177
+  - first:
+      213: 9045809190643909932
+    second: player-walk-four-directions-v1_178
+  - first:
+      213: 8903814409521381302
+    second: player-walk-four-directions-v1_179
+  - first:
+      213: 8684241055236799790
+    second: player-walk-four-directions-v1_180
+  - first:
+      213: -4152824256255237947
+    second: player-walk-four-directions-v1_181
+  - first:
+      213: 6410587586622680534
+    second: player-walk-four-directions-v1_182
+  - first:
+      213: -1712392509444180028
+    second: player-walk-four-directions-v1_183
+  - first:
+      213: 8148757848985777532
+    second: player-walk-four-directions-v1_184
+  - first:
+      213: -4047555034646858653
+    second: player-walk-four-directions-v1_185
+  - first:
+      213: 259618421553782750
+    second: player-walk-four-directions-v1_186
+  - first:
+      213: 7741422293958338775
+    second: player-walk-four-directions-v1_187
+  - first:
+      213: -1760117965832466614
+    second: player-walk-four-directions-v1_188
+  - first:
+      213: -3674865860280988782
+    second: player-walk-four-directions-v1_189
+  - first:
+      213: 1877815164032929002
+    second: player-walk-four-directions-v1_190
+  - first:
+      213: -6139810467190338872
+    second: player-walk-four-directions-v1_191
+  - first:
+      213: -4623668704223231644
+    second: player-walk-four-directions-v1_192
+  - first:
+      213: -2180710739314815174
+    second: player-walk-four-directions-v1_193
+  - first:
+      213: -3164657818658849866
+    second: player-walk-four-directions-v1_194
+  - first:
+      213: 5024484983305217969
+    second: player-walk-four-directions-v1_195
+  - first:
+      213: -7075236936144421017
+    second: player-walk-four-directions-v1_196
+  - first:
+      213: -1171023441222067291
+    second: player-walk-four-directions-v1_197
+  - first:
+      213: 8664682513209509551
+    second: player-walk-four-directions-v1_198
+  - first:
+      213: 769926683555620658
+    second: player-walk-four-directions-v1_199
+  - first:
+      213: -8731963612893108471
+    second: player-walk-four-directions-v1_200
+  - first:
+      213: 4831076582179596346
+    second: player-walk-four-directions-v1_201
+  - first:
+      213: 6570549260762279970
+    second: player-walk-four-directions-v1_202
+  - first:
+      213: 3380687797002082049
+    second: player-walk-four-directions-v1_203
+  - first:
+      213: -6906876129998490381
+    second: player-walk-four-directions-v1_204
+  - first:
+      213: -7655659634572425487
+    second: player-walk-four-directions-v1_205
+  - first:
+      213: 1905330123516808149
+    second: player-walk-four-directions-v1_206
+  - first:
+      213: -7488794100575605605
+    second: player-walk-four-directions-v1_207
+  - first:
+      213: -3140429714304033028
+    second: player-walk-four-directions-v1_208
+  - first:
+      213: -6135573437570688671
+    second: player-walk-four-directions-v1_209
+  - first:
+      213: -2935258796722133629
+    second: player-walk-four-directions-v1_210
+  - first:
+      213: 4848157069566467557
+    second: player-walk-four-directions-v1_211
+  - first:
+      213: -2730414459909527342
+    second: player-walk-four-directions-v1_212
+  - first:
+      213: 909437387002612347
+    second: player-walk-four-directions-v1_213
+  - first:
+      213: -426259218849222622
+    second: player-walk-four-directions-v1_214
+  - first:
+      213: -7370701120848367219
+    second: player-walk-four-directions-v1_215
+  - first:
+      213: -1670285194513926882
+    second: player-walk-four-directions-v1_216
+  - first:
+      213: 5032829458346561093
+    second: player-walk-four-directions-v1_217
+  - first:
+      213: 3680877878097477749
+    second: player-walk-four-directions-v1_218
+  - first:
+      213: 4188016254008948910
+    second: player-walk-four-directions-v1_219
+  - first:
+      213: 2033895671618844092
+    second: player-walk-four-directions-v1_220
+  - first:
+      213: -372284782950680646
+    second: player-walk-four-directions-v1_221
+  - first:
+      213: 8917175474236249761
+    second: player-walk-four-directions-v1_222
+  - first:
+      213: 9173357964472604301
+    second: player-walk-four-directions-v1_223
+  - first:
+      213: -1140104736911194867
+    second: player-walk-four-directions-v1_224
+  - first:
+      213: -3203967142982713279
+    second: player-walk-four-directions-v1_225
+  - first:
+      213: 6698290479325480046
+    second: player-walk-four-directions-v1_226
+  - first:
+      213: 2870436401570562382
+    second: player-walk-four-directions-v1_227
+  - first:
+      213: -1295524060727159018
+    second: player-walk-four-directions-v1_228
+  - first:
+      213: -2708156181001902454
+    second: player-walk-four-directions-v1_229
+  - first:
+      213: -1205537421887715215
+    second: player-walk-four-directions-v1_230
+  - first:
+      213: 1353896160912927796
+    second: player-walk-four-directions-v1_231
+  - first:
+      213: 2900105338446970904
+    second: player-walk-four-directions-v1_232
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Down_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 943
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d223359f16117f429d0230799f1dca8
+      internalID: -379647522
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Down_2
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 943
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 109ae9fea855cff4e90e1d83d09a3d6b
+      internalID: 2021351692
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Down_3
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 943
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0010b21dceb13fa40ada4c18d6540c92
+      internalID: 273856961
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Down_4
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 943
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f5a0007d1c3af64fa8b7fc3f41103d7
+      internalID: -2106033978
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 655
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c604a54a1444f974e8afc1c7e0b8a235
+      internalID: -982876763
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_2
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 655
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2863f5ffb93e3ee44aff7d2189dd4347
+      internalID: 609745933
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_3
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 655
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab46352dddb5ad84a900c798944d1a32
+      internalID: -1061889940
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left_4
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 655
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ac697ef2c958f469a703b3d8d6a90b
+      internalID: 85303653
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Right_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 362
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd0a69225d8af14687e6111bf55880c
+      internalID: -274009896
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Right_2
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 362
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7bdae9f4c777934bbf32677d980a073
+      internalID: -294115641
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Right_3
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 362
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc5a4ff68c140c4a9fe03f83ed3ece3
+      internalID: 1553632951
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Right_4
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 362
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95abcce55cfa9284a899dbc8279a5040
+      internalID: -1034240336
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Up_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 46
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adcd0e9b2a825cb4987a1832953ce82b
+      internalID: -2006273028
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Up_2
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 46
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69c1233a6a4d2b43a2e7ebac4bd72e5
+      internalID: 2017653144
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Up_3
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 46
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3b2e1479619154db7934f3be422cc3
+      internalID: 1996944987
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Up_4
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 46
+        width: 206
+        height: 286
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5174825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7579fe9a6756241aa8b0bbe2516634
+      internalID: 850601800
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    outline: []
+    customData:
+    physicsShape: []
+    bones: []
+    spriteID: 47e835d8d9cdbc048806790fc7f3f509
+    internalID: 0
+    vertices: []
+    indices:
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Down_1: -379647522
+      Down_2: 2021351692
+      Down_3: 273856961
+      Down_4: -2106033978
+      Left_1: -982876763
+      Left_2: 609745933
+      Left_3: -1061889940
+      Left_4: 85303653
+      Right_1: -274009896
+      Right_2: -294115641
+      Right_3: 1553632951
+      Right_4: -1034240336
+      Up_1: -2006273028
+      Up_2: 2017653144
+      Up_3: 1996944987
+      Up_4: 850601800
+  mipmapLimitGroupName:
+  pSDRemoveMatte: 0
+  userData:
+  assetBundleName:
+  assetBundleVariant:
