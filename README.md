@@ -34,6 +34,8 @@ CityLife 使用 Unity 作为游戏引擎，并用 C# 编写游戏逻辑。
 | [doc/business/](doc/business/) | 项目需求、业务规则和业务流程。 |
 | [doc/gameplay/](doc/gameplay/) | 核心玩法、游戏机制和数值设计。 |
 | [游戏基座](doc/gameplay/游戏基座.md) | 游戏定位、现有原型与待定义的基础玩法。 |
+| [MVP 功能范围](doc/gameplay/MVP功能范围.md) | 首版提供的街区探索、金币经济、住宅购买和存档验收。 |
+| [咖啡厅工作与饮品配方](doc/gameplay/咖啡厅工作与饮品配方.md) | Hazel 咖啡厅的接班、接单、制作、交付、工资结算和七种饮品配方。 |
 
 ## Unity 游戏内容
 
