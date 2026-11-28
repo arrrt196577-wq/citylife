@@ -23,6 +23,7 @@ CityLife 使用 Unity 作为游戏引擎，并用 C# 编写游戏逻辑。
 | [ArtSource/Scripts/](ArtSource/Scripts/) | 能重复生成成品的绘图脚本。[咖啡厅生成脚本](ArtSource/Scripts/draw_cafe.py)输出室内底图、外观和家具图集，也可用 `--preview` 导出内外对照图。 |
 | [ArtSource/Originals/](ArtSource/Originals/) | Pixelorama 的 .pxo 等可编辑原稿，可按建筑或道具分子目录存放。 |
 | [ArtSource/Drafts/](ArtSource/Drafts/) | 角色草图、配色试稿、动画测试和场景规划草图。[小超市室内规划草稿](ArtSource/Drafts/supermarket-interior-layout-v1.png)展示货架和购物动线。[小超市室内外对照](ArtSource/Drafts/supermarket-inside-outside-v1.png)展示进店前后的画面。[第二版外观](ArtSource/Drafts/supermarket-exterior-v2.png)采用砖红平顶和沿街生鲜橱窗。[第二版室内预览](ArtSource/Drafts/supermarket-interior-layout-v2.png)展示浅色砖墙、地砖和六色选品地毯。 |
+| [初始房屋分层素材](ArtSource/Drafts/StarterHouse/) | 空房底图、床、餐桌、电视柜和电视分别为透明 PNG，按 16 PPU 使用。以 160 × 160 像素底图左上角为原点，床、餐桌、电视柜和电视的左上角分别为 `(24, 37)`、`(66, 80)`、`(106, 45)`、`(112, 35)`，电视绘制在柜子上方。 |
 
 ## 项目文档
 
