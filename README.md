@@ -40,6 +40,7 @@ CityLife 使用 Unity 作为游戏引擎，并用 C# 编写游戏逻辑。
 | --- | --- |
 | [Game/Assets/CityLife/](Game/Assets/CityLife/) | CityLife 的游戏代码和素材。 |
 | [Scripts/PlayerMovement.cs](Game/Assets/CityLife/Scripts/PlayerMovement.cs) | 使用 Player/Move 输入移动角色，并驱动四方向走路与待机动画。 |
+| [Scripts/CameraFollow.cs](Game/Assets/CityLife/Scripts/CameraFollow.cs) | 镜头跟随主角移动，保留初始取景偏移与相机深度，可从咖啡厅走向右侧超市。 |
 | [Scripts/CafeInterior.cs](Game/Assets/CityLife/Scripts/CafeInterior.cs) | 根据角色脚下的位置显示或隐藏建筑外观，供 Cafe 和 Market 使用。 |
 | [Art/Characters/](Game/Assets/CityLife/Art/Characters/) | 女主角的正面站姿与四方向走路图集。 |
 | [Animations/Player/](Game/Assets/CityLife/Animations/Player/) | 主角 Animator Controller 与四方向走路、待机动画。 |
@@ -48,7 +49,7 @@ CityLife 使用 Unity 作为游戏引擎，并用 C# 编写游戏逻辑。
 | [Art/Props/Supermarket/](Game/Assets/CityLife/Art/Props/Supermarket/) | 小超市的室内底图、外观覆盖层和家具图集。三张图共用 448 × 384 px 画布和 16 PPU，家具按草稿原位切片。以底图中心为原点，外观覆盖层的局部 Y 为 `-5.8125`。 |
 | [Art/Props/Supermarket/V2/](Game/Assets/CityLife/Art/Props/Supermarket/V2/) | 第二版室内底图、外观覆盖层、购物车和选品地毯图集，均为 16 PPU。每块地毯为 104 × 15 px，轴心在下边中央。以底图中心为原点，左右列局部 X 为 `-5`、`5`，后、中、前排局部 Y 为 `4`、`0.75`、`-2.625`。 |
 | [Market.prefab](Game/Assets/CityLife/Art/Props/Supermarket/V2/Market.prefab) | 已组装第二版室内外、家具、六块独立地毯和墙体碰撞。拖入场景后调整 `Market` 父物体的 `Transform`，再将场景中的 `Player` 拖入 `Cafe Interior` 组件的 `Player` 槽，即可随进出切换外观。 |
-| [Game/Assets/Scenes/](Game/Assets/Scenes/) | [示例场景](Game/Assets/Scenes/SampleScene.unity)包含主角四方向移动与动画、可步行进出的咖啡厅，以及墙体和家具碰撞。 |
+| [Game/Assets/Scenes/](Game/Assets/Scenes/) | [示例场景](Game/Assets/Scenes/SampleScene.unity)包含主角四方向移动与动画、跟随镜头、可步行进出的咖啡厅和右侧超市，以及墙体和家具碰撞。超市从南面正门进入，从咖啡厅出发需先向下绕过超市左墙，再向右走到门口。 |
 | [Game/Assets/Settings/](Game/Assets/Settings/) | 2D 渲染管线、输入动作和场景模板配置。 |
 | [Game/Assets/Welcome/](Game/Assets/Welcome/) | Unity 2D 模板的欢迎页资源和脚本。 |
 | [Game/Packages/](Game/Packages/) | Unity 包依赖清单和锁定版本。 |
